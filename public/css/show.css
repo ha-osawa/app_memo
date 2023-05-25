@@ -1,0 +1,20 @@
+.content {
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.flex_wrapper {
+  display: flex;
+  align-items:  center;
+  margin-top: 3em;
+}
+
+.flex_item {
+  margin-right: 5em;
+}
+
+button {
+  padding: 5px 40px 5px 40px;
+  border-radius: 5px;
+  border: 1px solid #aaa;
+}

@@ -1,0 +1,20 @@
+<article>
+  <div class="flex_wrapper">
+    <div class="flex_item">
+      <h1>メモアプリ</h1>
+      <ul>
+        <% begin %>
+        <% @memos.each do |memo| %>
+          <li><a href="/memo/<%= memo["id"] %>"><%= memo["title"] %></a></li>
+        <% end %>
+        <% rescue %>
+        <% end %>
+      </ul>
+    </div>
+    <div class="flex_item">
+      <form method="get" action="/memo/new">
+        <button type='submit'>追加</button>
+      </form>
+    </div>
+  </div>
+</article>
