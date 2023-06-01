@@ -1,21 +1,21 @@
-<div class="content">
-  <h1>メモアプリ</h1>
+<div class="show_item">
+  <h1>メモの詳細</h1>
 
   <h2>メモのタイトル</h2>
-  <p><%= @memo["title"] %></p>
+  <p><%= h(@memo["title"]) %></p>
 
   <h2>メモの内容</h2>
-  <p><%= @memo["content"] %></p>
+  <p><%= h(@memo["content"]) %></p>
 
   <div class="flex_wrapper">
     <div class="flex_item">
-      <form method="get" action="/memo/<%= @memo["id"] %>/edit">
+      <form method="get" action="/memos/<%= h(@memo["id"]) %>/edits">
       <button type="submit">変更</button>
       </form>
     </div>
 
     <div class="flex_item">
-      <form method="post" action="/memo/<%= @memo["id"] %>">
+      <form method="post" action="/memos/<%= h(@memo["id"]) %>">
         <input type="hidden" name="_method" value="delete">
         <button type="submit">削除</button>
       </form>

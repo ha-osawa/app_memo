@@ -1,17 +1,17 @@
-<article>
-  <h1>メモアプリ</h1>
+<div class="new_edit_item">
   <div class="flex_wrapper">
-      <form method="post" action="/memo/<%= @memo_id %>">
-        <div class="flex_item">
-          <input type="text" name="memo_title">
-        </div>
-        <div class="flex_item">
-          <textarea name="memo_content"></textarea>
-        </div>
-        <div class="flex_item send_btn">
-          <input type="hidden" name="_method" value="patch">
-          <button type="submit">変更</button>
-        </div>
-      </form>
+    <h1>メモの編集</h1>
+    <form method="post" action="/memos/<%= h(@memo_id) %>">
+      <div class="flex_item">
+        <input type="text" name="memo_title">
+      </div>
+      <div class="flex_item">
+        <textarea name="memo_content"></textarea>
+      </div>
+      <div class="flex_item send_btn">
+        <input type="hidden" name="_method" value="patch">
+        <button type="submit">変更</button>
+      </div>
+    </form>
   </div>
-</article>
+</div>
