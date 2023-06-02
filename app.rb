@@ -39,14 +39,14 @@ end
 
 get '/memos/:memo_id' do
   memos = File.open(json_path) { |file| JSON.parse(file.read) }
-  @memo = memos.find { |memo| memo['id'].eql?(params[:memo_id]) }
+  @memo = memos.find { |memo| memo['id'] == params[:memo_id] }
   @title = 'メモの詳細'
   erb :show
 end
 
 delete '/memos/:memo_id' do
   memos = File.open(json_path) { |file| JSON.parse(file.read) }
-  remain_memos = memos.delete_if { |memo| memo['id'].eql?(params[:memo_id]) }
+  remain_memos = memos.delete_if { |memo| memo['id'] == params[:memo_id] }
   File.open(json_path, 'w') do |file|
     JSON.dump(remain_memos, file)
   end
@@ -61,7 +61,7 @@ end
 
 patch '/memos/:memo_id' do
   memos = File.open(json_path) { |file| JSON.parse(file.read) }
-  memo_index = memos.find_index { |memo| memo['id'].eql?(params[:memo_id]) }
+  memo_index = memos.find_index { |memo| memo['id'] == params[:memo_id] }
   memos[memo_index]['title'] = params[:memo_title] unless params[:memo_title].empty?
   memos[memo_index]['content'] = params[:memo_content] unless params[:memo_content].empty?
   File.open(json_path, 'w') do |file|
