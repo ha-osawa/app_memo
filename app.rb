@@ -26,7 +26,7 @@ end
 
 post '/memos/new' do
   memos = []
-  File.open(json_path, 'r') do |file|
+  File.open(json_path) do |file|
     memos = JSON.parse(file.read) unless File.empty?(json_path)
     memos.push({ id: SecureRandom.uuid, title: params[:memo_title], content: params[:memo_content] })
   end
