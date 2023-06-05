@@ -56,7 +56,9 @@ end
 
 get '/memos/:memo_id/edit' do
   @title = 'メモの編集'
-  @memo_id = params[:memo_id]
+  memos = File.open(json_path) { |file| JSON.parse(file.read) }
+  memo_index = memos.find_index { |memo| memo['id'] == params[:memo_id] }
+  @memo = memos[memo_index]
   erb :edit
 end
 
