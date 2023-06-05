@@ -10,10 +10,8 @@
     </div>
   </div>
   <ul>
-    <% unless @memos.nil? || @memos.empty? %>
-      <% @memos.each do |memo| %>
-        <li><a href="/memos/<%= h(memo["id"]) %>"><%= h(memo["title"]) %></a></li>
-      <% end %>
+    <% @memos.each do |memo| %>
+      <li><a href="/memos/<%= h(memo["id"]) %>"><%= h(memo["title"]) %></a></li>
     <% end %>
   </ul>
 </div>

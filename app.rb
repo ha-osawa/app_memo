@@ -14,6 +14,7 @@ helpers do
 end
 
 get '/memos' do
+  @memos = []
   @title = 'メモ一覧'
   @memos = File.open(json_path) { |file| JSON.parse(file.read) } unless File.empty?(json_path)
   erb :top
