@@ -24,7 +24,7 @@ get '/memos/new' do
   erb :new
 end
 
-post '/memos/new' do
+post '/memos' do
   memos = []
   File.open(json_path) do |file|
     memos = JSON.parse(file.read) unless File.empty?(json_path)
@@ -53,7 +53,7 @@ delete '/memos/:memo_id' do
   redirect '/memos'
 end
 
-get '/memos/:memo_id/edits' do
+get '/memos/:memo_id/edit' do
   @title = 'メモの編集'
   @memo_id = params[:memo_id]
   erb :edit
