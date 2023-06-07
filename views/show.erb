@@ -2,20 +2,20 @@
   <h1>メモの詳細</h1>
 
   <h2>メモのタイトル</h2>
-  <p><%= h(@memo["title"]) %></p>
+  <p><%= h(@memo[0][1]) %></p>
 
   <h2>メモの内容</h2>
-  <p><%= h(@memo["content"]) %></p>
+  <p><%= h(@memo[0][2]) %></p>
 
   <div class="flex_wrapper">
     <div class="flex_item">
-      <form method="get" action="/memos/<%= h(@memo["id"]) %>/edit">
+      <form method="get" action="/memos/<%= h(@memo[0][0]) %>/edit">
       <button type="submit">変更</button>
       </form>
     </div>
 
     <div class="flex_item">
-      <form method="post" action="/memos/<%= h(@memo["id"]) %>">
+      <form method="post" action="/memos/<%= h(@memo[0][0]) %>">
         <input type="hidden" name="_method" value="delete">
         <button type="submit">削除</button>
       </form>

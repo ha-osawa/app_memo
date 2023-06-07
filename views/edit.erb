@@ -1,12 +1,12 @@
 <div class="new_edit_item">
   <div class="flex_wrapper">
     <h1>メモの編集</h1>
-    <form method="post" action="/memos/<%= h(@memo['id']) %>">
+    <form method="post" action="/memos/<%= h(@memo[0][0]) %>">
       <div class="flex_item">
-        <input type="text" name="memo_title" value="<%= h(@memo['title']) %>">
+        <input type="text" name="memo_title" value="<%= h(@memo[0][1]) %>">
       </div>
       <div class="flex_item">
-        <textarea name="memo_content"><%= h(@memo['content']) %></textarea>
+        <textarea name="memo_content"><%= h(@memo[0][2]) %></textarea>
       </div>
       <div class="flex_item send_btn">
         <input type="hidden" name="_method" value="patch">
