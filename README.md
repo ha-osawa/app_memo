@@ -29,3 +29,17 @@ git clone https://github.com/ha-osawa/app_memo.git
 == Sinatra (v3.0.6) has taken the stage on 4567 for development with backup from WEBrick
 [2023-05-25 14:41:32] INFO  WEBrick::HTTPServer#start: pid=31313 port=4567
 ```
+
+## 環境構築のために実行したSQL文
+### データベース定義のSQL文
+```
+CREATE DATABASE memo;
+```
+### テーブル定義のSQL文
+```
+CREATE TABLE memo(
+  id char(36) primary key,
+  title varchar(100) default null,
+  content text default null
+);
+```
